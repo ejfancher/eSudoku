@@ -71,19 +71,23 @@ table {
   table-layout: auto;
 }
 
-/* laptop */
-@media (min-width: 1000px) {
+/* laptop
+ this laptop in firefox is: 1280px wide, 698px high
+ */
+@media (min-width: 1001px) {
   td {
     width: 40px;
     height: 40px;
   }
 }
 
-/* phone vertical */
+/* phone vertical 
+phones seem to have 980px width, height > 1700px (usually ~1750 px)
+*/
 @media (max-width: 1000px) {
   td {
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 90px;
   }
 }
 
