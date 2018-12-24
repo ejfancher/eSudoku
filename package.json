@@ -29,7 +29,6 @@
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
   },
-  /* for heroku to know which version of node to use: */
   "engines": {
     "node": "8.x"
   }
