@@ -1,0 +1,181 @@
+/* game page layout styling: */
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+div#header {
+  height: 10vh;
+  background: grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+div#header h1 {
+  font-size: 25pt;
+  text-align: center;
+  margin: 0;
+  line-height: 10vh;
+  align-self: center;
+}
+
+a#back_button {
+  font-size: 20pt;
+}
+
+div#app {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+div#footer {
+  height: 10vh;
+  background: grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+div#placeholder {
+  height: 1px;
+  width: 33.33vw;
+}
+
+div#site_info {
+  width: 33.33vw;
+  display: flex;
+  flex-direction: column;
+}
+
+div#copyright {
+  width: 33.33vw;
+  text-align: center;
+}
+
+
+/* sudoku board style: */
+
+
+table {
+  border: 3px solid black;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+/* laptop */
+@media (min-width: 1000px) {
+  td {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* phone vertical */
+@media (max-width: 1000px) {
+  td {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+td {
+  border-width: 1px;
+  border-style: solid;
+  padding: 0;
+}
+
+td:nth-child(3n+1) {
+  border-left-width: 2px;
+}
+
+input {
+  height: 100%; 
+  width: 100%;
+  /* relative of the td's content box height, width */
+}
+
+input.user_changeable {
+  text-align: center;
+  font-size: 2em;
+  padding: 0px;
+  border: 0px solid red;
+}
+
+input.locked_preset {
+  text-align: center;
+  font-size: 2em;
+  color: blue;
+  padding: 0px;
+  border: 0px solid red;
+}
+
+input[partOfCrossHair='true'] {
+  background-color: #9ab7d699;
+}
+
+input:hover {
+  background-color: #9ab7d6;
+}
+
+input[conf='preset'] {
+  color: #ff4d4d;
+}
+
+input[conf='user'] {
+  color: red;
+}
+
+
+tr:nth-child(3n) > td {
+  border-bottom-width: 2px;
+}
+
+*:focus {
+  outline: none;
+}
+
+
+
+
+/*   legacy:;
+
+td:hover::before { 
+  background-color: #9ab7d699;
+  content: '\00a0';  
+  height: 100%;
+  left: -5000px;
+  position: absolute;  
+  top: 0;
+  width: 10000px;   
+  z-index: -1;        
+}
+
+td:hover::after {
+  background-color: #9ab7d699;;
+  content: '\00a0';  
+  height: 10000px;    
+  left: 0;
+  position: absolute;  
+  top: -5000px;
+  width: 100%;
+  z-index: -1;  
+}
+
+td:hover {
+  background-color: #9ab7d6;
+}
+
+input {
+  background-color: rgba(0,0,0,0);
+}
+
+*/
