@@ -23,6 +23,11 @@ app.get('/bundle.js', (req, res) => {
   res.sendFile(target_file)
 })
 
+app.get('/test', (req, res) => {
+  var target_file = cwd+'/src/html/test.html'
+  res.sendFile(target_file)
+})
+
 // check for port env variable for when being deployed from heroku server
 let port = process.env.PORT;
 if (port == null || port == "") {

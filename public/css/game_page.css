@@ -79,6 +79,9 @@ table {
     width: 40px;
     height: 40px;
   }
+  input {
+    font-size: 32px;
+  }
 }
 
 /* phone vertical 
@@ -88,6 +91,9 @@ phones seem to have 980px width, height > 1700px (usually ~1750 px)
   td {
     width: 100px;
     height: 100px;
+  }
+  input {
+    font-size: 80px;
   }
 }
 
@@ -104,19 +110,17 @@ td:nth-child(3n+1) {
 input {
   height: 100%; 
   width: 100%;
-  /* relative of the td's content box height, width */
+  /* relative of the td's content box height & width */
 }
 
 input.user_changeable {
   text-align: center;
-  font-size: 2em;
   padding: 0px;
   border: 0px solid red;
 }
 
 input.locked_preset {
   text-align: center;
-  font-size: 2em;
   color: blue;
   padding: 0px;
   border: 0px solid red;
