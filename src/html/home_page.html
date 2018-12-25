@@ -9,8 +9,21 @@
 		<h1>Welcome to The APP</h1>
 	</div>
 	<div id='main'>
-		<form action="game" method="post">
-			<input type="submit" value="GO TO SUDOKU">
+		<h2>Select difficulty of game:</h2>
+		<form action="game" method="get">
+			<button type="submit" name="diff" value="easy">
+				Easy
+			</button>
+		</form>
+		<form action="game" method="get">
+			<button type="submit" name="diff" value="medium">
+				Medium
+			</button>
+		</form>
+		<form action="game" method="get">
+			<button type="submit" name="diff" value="hard">
+				Hard
+			</button>
 		</form>
 	</div>
 	<div id='footer'>

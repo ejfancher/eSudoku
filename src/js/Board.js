@@ -1,5 +1,6 @@
 import {LogicalCell} from './LogicalCell.js'
 
+
 export class Board {
 
 	constructor(boardString) {

@@ -11,10 +11,8 @@ export class Grid extends React.Component {
 		this.changeCellValue = this.changeCellValue.bind(this);
 		this.getConfType = this.getConfType.bind(this);
 
-		var values = '016002400320009000040103000005000069009050300630000800000306010000400072004900680'
-
 		this.state = {
-			board : new Board(values),
+			board : new Board(board_string), //board_string "injected" into a <script> in the final html
 			crossHairM : -1,
 			crossHairN : -1,
 			user_value_conflicts : [], // only the latest user entered value that is conflicting will be marked as being in conflict
@@ -22,13 +20,6 @@ export class Grid extends React.Component {
 		};
 		this.state.grid = this.state.board.get_rows()
 	}
-
-	componentDidMount() {
-		console.log('componentDidMount()')
-    	fetch('http://localhost:5000/api/customers')
-      		.then(res => {return res.json();})
-      		.then(data => console.log(data))
-  	}
 
 	updateConflicts(m, n, val) {
 		var conflicts = this.state.board.get_conflicts(m,n,val)
