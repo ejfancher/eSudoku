@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>eSudoku</title>
 	<link rel="stylesheet" type="text/css" href="css/home_page.css">
 </head>
 <body>
+	<script type="text/javascript">
+      var vh = window.innerHeight;
+      if (vh > 1200){
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        window.addEventListener('resize', () => {
+          let vh = window.innerHeight;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
+      }
+    </script>
 	<div id='header'>
-		<h1>Welcome to The APP</h1>
+		<h1>Welcome to eSudoku</h1>
 	</div>
+	<form id="to_game" action="game" method="get"></form>
 	<div id='main'>
 		<h2>Select difficulty of game:</h2>
-		<form action="game" method="get">
-			<button type="submit" name="diff" value="easy">
+		<div id="diff_sel_buttons">
+			<button form="to_game" type="submit" name="diff" value="easy">
 				Easy
 			</button>
-		</form>
-		<form action="game" method="get">
-			<button type="submit" name="diff" value="medium">
+			<button form="to_game" type="submit" name="diff" value="medium">
 				Medium
 			</button>
-		</form>
-		<form action="game" method="get">
-			<button type="submit" name="diff" value="hard">
+			<button form="to_game" type="submit" name="diff" value="hard">
 				Hard
 			</button>
-		</form>
+		</div>
 	</div>
 	<div id='footer'>
 		

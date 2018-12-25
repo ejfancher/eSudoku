@@ -23,7 +23,6 @@ export class Grid extends React.Component {
 
 	updateConflicts(m, n, val) {
 		var conflicts = this.state.board.get_conflicts(m,n,val)
-		console.log(conflicts);
 
 		this.state.other_conflicts = []
 
@@ -104,6 +103,8 @@ export class Grid extends React.Component {
     }
 
 	render() {
+
+		console.log('render()')
 		const chm = this.state.crossHairM;
 		const chn = this.state.crossHairN;
 
