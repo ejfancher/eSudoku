@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "start-dev": "nodemon server.js",
-    "nevermind-postinstall" : "webpack",
+    "nevermind-postinstall": "webpack",
     "start": "node server.js"
   },
   "author": "",

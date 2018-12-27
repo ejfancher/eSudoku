@@ -165,6 +165,7 @@ export class Board {
 		return true;
 	}
 
+	// returns the locations of all cells with the same value with respect to a certain board coordinate (in the argument cells column, row, box )
 	get_conflicts(m, n, new_val) {
 		var conflicts = []
 		var row_num = m

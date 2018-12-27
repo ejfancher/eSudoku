@@ -16,36 +16,53 @@ export class Grid extends React.Component {
 			crossHairM : -1,
 			crossHairN : -1,
 			user_value_conflicts : [], // only the latest user entered value that is conflicting will be marked as being in conflict
-			other_conflicts : [] // containts user entered and preset value conflicts, howeve the conf attribute on the Cell JSX makes sure that they are colored according to being user or preset values
+			other_conflicts : [] // contains user entered and preset value conflicts, however the conf attribute on the Cell JSX makes sure that they are colored according to being user or preset values
 		};
 		this.state.grid = this.state.board.get_rows()
 	}
 
 	updateConflicts(m, n, val) {
-		var conflicts = this.state.board.get_conflicts(m,n,val)
 
 		this.state.other_conflicts = []
 
-		if (conflicts.length > 0){	// if there was a conflict caused by the new value, add its cell and its conflicts to the right conflict lists
-			this.state.user_value_conflicts.push([m, n]);
-			for (var i=0; i<conflicts.length; i++){
-				if (conflicts[i][0] != m || conflicts[i][1] != n){
-					this.state.other_conflicts.push([conflicts[i][0], conflicts[i][1]])
-				}
-			}
-		}
-
-		else {
-			if (val == 0){	// else if there are no conflicts and the value change is a deletion, remove any user entered value conflict on the current cell
-				for (var i=0; i<this.state.user_value_conflicts.length; i++){
-					if (this.state.user_value_conflicts[i][0] == m && this.state.user_value_conflicts[i][1] == n){
-						this.state.user_value_conflicts.splice(i, 1)
-						break
+		if (val != 0) { // if the change was not a deletion, but a value 1-9
+			var conflicts = this.state.board.get_conflicts(m,n,val)
+			if (conflicts.length > 0) {	// if there was a conflict caused by the new value, add its cell and its conflicts to the right conflict lists
+				this.state.user_value_conflicts.push([m, n]);
+				for (var i=0; i<conflicts.length; i++) {
+					if (conflicts[i][0] != m || conflicts[i][1] != n) {
+						this.state.other_conflicts.push([conflicts[i][0], conflicts[i][1]])
 					}
 				}
 			}
 		}
-
+		else {
+			for (var i=0; i<this.state.user_value_conflicts.length; i++) { // remove the user entered conflict on the current (now empty) cell
+				if (this.state.user_value_conflicts[i][0] == m && this.state.user_value_conflicts[i][1] == n) {
+					this.state.user_value_conflicts.splice(i, 1)
+					break
+				}
+			}
+			/* The only way to cause a cell with a user entered value that caused a conflict on initial input
+			   into the board to no longer be causing a conflict is to delete a cell somewhere on the board. 
+			   Deleting a cell half way into a game could cause the first cell entered during the game to be
+			   relieved of its conflicts. As such we check all stored conflicts in user_value_conflicts for conflicts
+			   everytime time a deletion is made. */
+			while (!parsing_complete) {
+				var parsing_complete = true
+				for (var i=0; i<this.state.user_value_conflicts.length; i++) {
+					let conf_m = this.state.user_value_conflicts[i][0];
+					let conf_n = this.state.user_value_conflicts[i][1];
+					let confs = this.state.board.get_conflicts(conf_m, conf_n, this.state.board.get_cell_value_mn(conf_m, conf_n));
+					if (confs.length === 0) {
+						this.state.user_value_conflicts.splice(i, 1)
+						//console.log('removing '+conf_m+', '+conf_n+' from user_value_conflicts.')
+						parsing_complete = false
+						continue
+					}
+				}
+			}
+		}
 		this.setState({user_value_conflicts: this.state.user_value_conflicts,
 					other_conflicts: this.state.other_conflicts})
 	}
@@ -68,7 +85,7 @@ export class Grid extends React.Component {
 
 // rms the col, row mouseover focus
 	rmCrossHairs(){
-		console.log('rmCrossHairs()')
+		//console.log('rmCrossHairs()')
      	this.setState({crossHairM: -1,
      				crossHairN: -1})
     }
@@ -104,7 +121,7 @@ export class Grid extends React.Component {
 
 	render() {
 
-		console.log('render()')
+		//console.log('render()')
 		const chm = this.state.crossHairM;
 		const chn = this.state.crossHairN;
 
