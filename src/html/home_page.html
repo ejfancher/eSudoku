@@ -1,48 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/home_page.css">
+
 	<title>eSudoku</title>
 </head>
 <body>
-	<nav class="navbar my_nav navbar-expand navbar-dark bg-dark fixed-top justify-content-center">
-		<ul class="navbar-nav mr-auto">
-			<li class="nav-item dropdown">
-            	<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
-	            <div class="dropdown-menu" aria-labelledby="dropdown01">
-	            	<a class="dropdown-item" href="#">Site Map</a>
-	              <a class="dropdown-item" href="https://github.com/ejfancher/eSudoku">Source Code on GitHub</a>
-	            </div>
-          </li>
-        </ul>
-	</nav>
+	<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="/map">Site Map</a>
+              <a class="dropdown-item" href="https://github.com/ejfancher/eSudoku">Source Code on GitHub</a>
+            </div>
+        </li>
+      </ul>
+    </nav>
 
 <!-- Don't try to vertically align your body elements, think about what would happen on landscape view of a phone if you had the element start 40% of the way down the viewport. Also, just in general, sacrifice some viewing pleasure for what bootstrap examples set out. I think its best if we stick with pushing the element down the page only as much as the bootstrap starter-template example did. -->
-	<main role="main" class="container">
-		<!-- see CSS for explanation of: -->
-		<div id="just_inside_container">
-			<h1>Welcome to eSudoku. </h1>
-			<h2>select a difficulty:</h2>
-			<form id="to_game" action="game" method="get">
-				<div id="diff_sel_buttons">
-					<button class="btn btn-lg" type="submit" name="diff" value="easy">
-						Easy
-					</button>
-					<button class="btn btn-lg" type="submit" name="diff" value="medium">
-						Medium
-					</button>
-					<button class="btn btn-lg" type="submit" name="diff" value="hard">
-						Hard
-					</button>
-				</div>
-			</form>
-		</div>
-	</main>
+	<div class="container" id="container1">
+		<h1>Welcome to eSudoku. </h1>
+		<h2>select a difficulty:</h2>
+		<form id="to_game" action="game" method="get">
+			<div id="diff_sel_buttons">
+				<button class="btn btn-lg" type="submit" name="diff" value="easy">
+					Easy
+				</button>
+				<button class="btn btn-lg" type="submit" name="diff" value="medium">
+					Medium
+				</button>
+				<button class="btn btn-lg" type="submit" name="diff" value="hard">
+					Hard
+				</button>
+			</div>
+		</form>
+	</div>
 
 	<!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -3,27 +3,21 @@ body {
   padding-top: 5rem;
 }
 
-/* Note: if using canonical bootstrap this should be applied to a div
-just inside div#app. */
 div#app {
   padding: 3rem 1.5rem;
 }
 
-
-
-
 /****************         SUDOKU BOARD STYLING         ****************/
 
-/* Extra small devices (575px wide and under) */
-/* PHONES IN PORTRAIT MODE SEEM TO MATCH HERE */
+/* Extra small devices (all portrait phones, 575px wide and under) */
 table {
-    border: 3px solid black;
+  border: 3px solid black;
 }
 td:nth-child(3n+1) {
-    border-left-width: 2px;
+  border-left-width: 2px;
 }
 tr:nth-child(3n) > td {
-    border-bottom-width: 2px;
+  border-bottom-width: 2px;
 }
 td {
   width: 32.5px;
@@ -46,12 +40,12 @@ input {
       border-bottom-width: 2px;
   }
   td {
-    width: 40px;
-    height: 40px;
+    width: 32.5px;
+    height: 32.5px;
     border-width: 1px;
   }
   input {
-    font-size: 32px;
+    font-size: 25px;
   }
 }
 
@@ -90,7 +84,7 @@ input {
   td {
     width: 42.5px;
     height: 42.5px;
-    border-width: 1.5px;
+    border-width: 1px;
   }
   input {
     font-size: 32px;
@@ -111,14 +105,24 @@ input {
   td {
     width: 42.5px;
     height: 42.5px;
-    border-width: 1.5px;
+    border-width: 1px;
   }
   input {
     font-size: 32px;
   }
+/* lighter shade for crosshair than for currently hovered
+over cell. This crosshair shows up in devTools iPad Pro
+landscape mode. The crosshair renders horribly on most all
+touch screen devices. The CSS-Tricks version of doing the cross
+hair effect is worth a shot (to apply to all devices,
+having :hover or not). */
+  input[partOfCrossHair='true'] {
+    background-color: #9ab7d699;
+  }
+  input:hover {
+    background-color: #9ab7d6;
+  }
 }
-
-
 
 table {
   border-collapse: collapse;
@@ -134,27 +138,14 @@ input {
   height: 100%; 
   width: 100%;
   /* relative of the td's content box height & width */
-}
 
-input[partOfCrossHair='true'] {
-  background-color: #9ab7d699;
-}
-input:hover {
-  background-color: #9ab7d6;
-}
-
-
-input.user_changeable {
   text-align: center;
   padding: 0;
   border: 0;
 }
 
 input.locked_preset {
-  text-align: center;
   color: blue;
-  padding: 0;
-  border: 0;
 }
 
 input[conf='preset'] {
@@ -165,43 +156,7 @@ input[conf='user'] {
   color: red;
 }
 
+/* remove highlighting of input borders on blur */
 *:focus {
   outline: none;
 }
-
-
-
-
-/*   legacy:;
-
-td:hover::before { 
-  background-color: #9ab7d699;
-  content: '\00a0';  
-  height: 100%;
-  left: -5000px;
-  position: absolute;  
-  top: 0;
-  width: 10000px;   
-  z-index: -1;        
-}
-
-td:hover::after {
-  background-color: #9ab7d699;;
-  content: '\00a0';  
-  height: 10000px;    
-  left: 0;
-  position: absolute;  
-  top: -5000px;
-  width: 100%;
-  z-index: -1;  
-}
-
-td:hover {
-  background-color: #9ab7d6;
-}
-
-input {
-  background-color: rgba(0,0,0,0);
-}
-
-*/

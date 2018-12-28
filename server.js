@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 	res.sendFile(target_file)
 })
 
-app.all('/game', (req, res) => {
+app.get('/game', (req, res) => {
   const diff = req.query.diff
   if (diff != null && diff != "") {
     const board_string = boards.randomBoard(diff)
@@ -27,21 +27,8 @@ app.all('/game', (req, res) => {
     res.send(data)
   }
   else {
-    var target_file = cwd+'/src/html/game_page.html'
-    res.sendFile(target_file)
+    res.redirect('/game?diff=easy')
   }
-})
-
-// APPLE STORE TESTING
-app.all('/short', (req, res) => {
-    var target_file = cwd+'/src/html/game_page_short.html'
-    res.sendFile(target_file)
-})
-
-// APPLE STORE TESTING
-app.all('/long', (req, res) => {
-    var target_file = cwd+'/src/html/game_page_long.html'
-    res.sendFile(target_file)
 })
 
 app.get('/bundle.js', (req, res) => {
@@ -54,6 +41,11 @@ app.get('/test', (req, res) => {
   res.sendFile(target_file)
 })
 
+app.get('/map', (req, res) => {
+  var target_file = cwd+'/src/html/site_map.html'
+  res.sendFile(target_file)
+})
+
 // check for port env variable for when being deployed from heroku server
 let port = process.env.PORT;
 if (port == null || port == "") {
@@ -61,23 +53,3 @@ if (port == null || port == "") {
 }
 
 app.listen(port);
-
-
-
-
-
-/*
-app.get('/api/customers', (req, res) => {
-  const customers = [
-    {id: 1, firstName: 'John', lastName: 'Doe'},
-    {id: 2, firstName: 'Brad', lastName: 'Traversy'},
-    {id: 3, firstName: 'Mary', lastName: 'Swanson'},
-  ];
-
-  res.set('Access-Control-Allow-Origin', '*')
-  console.log(res.get('Access-Control-Allow-Origin'))
-
-  res.json(customers);
-  
-});
-*/
