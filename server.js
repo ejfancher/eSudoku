@@ -32,6 +32,18 @@ app.all('/game', (req, res) => {
   }
 })
 
+// APPLE STORE TESTING
+app.all('/short', (req, res) => {
+    var target_file = cwd+'/src/html/game_page_short.html'
+    res.sendFile(target_file)
+})
+
+// APPLE STORE TESTING
+app.all('/long', (req, res) => {
+    var target_file = cwd+'/src/html/game_page_long.html'
+    res.sendFile(target_file)
+})
+
 app.get('/bundle.js', (req, res) => {
   var target_file = cwd+'/src/bundle/bundle.js'
   res.sendFile(target_file)

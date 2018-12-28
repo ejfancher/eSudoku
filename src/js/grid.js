@@ -11,6 +11,10 @@ export class Grid extends React.Component {
 		this.changeCellValue = this.changeCellValue.bind(this);
 		this.getConfType = this.getConfType.bind(this);
 
+		if (board_string == null || board_string == "") {
+			var board_string = "111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+		}
+
 		this.state = {
 			board : new Board(board_string), //board_string "injected" into a <script> in the final html
 			crossHairM : -1,

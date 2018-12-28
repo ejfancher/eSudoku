@@ -1,103 +1,25 @@
-/* laptop
- this laptop in firefox is: 1280px wide, 698px high
- */
-@media (max-height: 1200px) {
-  div#header {
-    height: 10vh;
-  }
-  div#header h1 {
-  	font-size: 30pt;
-	line-height: 10vh;
-  }
-  div#main {
-    height: 80vh;
-  }
-  div#main h2{
-	font-size: 25pt;
-  }
-  div#diff_sel_buttons button {
-  	width: 100px;
-  	height: 50px;
-  	background-color: cyan;
-  	font-size: 17pt;
-  	margin-right: 5px;
-  	margin-left: 5px
-  }
-  div#footer {
-    height: 10vh;
-  }
+body {
+  /* Adding padding to the top of the main moves all elements below
+  the navbar to below the navbar, even though the navbar is in body.
+  Try deleting it and readding it for proof. */
+  padding-top: 5rem;
 }
 
-/* phone vertical 
-phones seem to have 980px width, height > 1700px (usually ~1750 px)
-*/
-@media (min-height: 1201px) {
-  div#header {
-    height: calc(var(--vh, 10vh) * .1);
-  }
-  div#header h1 {
-  	font-size: 60pt;
-	line-height: calc(var(--vh, 10vh) * .1);
-  }
-  div#main {
-    height: calc(var(--vh, 80vh) * .8);
-  }
-  div#main h2{
-	font-size: 50pt;
-  }
-  div#diff_sel_buttons button {
-  	width: 20vw;
-  	height: 10vw;
-  	background-color: cyan;
-  	font-size: 25pt;
-  	margin-right: 1vw;
-  	margin-left: 1vw
-  }
-  div#footer {
-    height: calc(var(--vh, 10vh) * .1);
-  }
+nav h2 {
+  color: white;
 }
 
-html, body {
-	margin: 0;
-	height: 100%;
+div#diff_sel_buttons button {
+	background-color: cyan;
+  margin-right: 1vw;
+  margin-left: 1vw;
 }
 
-div#header, div#footer {
-	background: teal;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
-}
-
-div#header h1 {
+/* this just inside container div is copying the starter-template 
+example, and styling here is the exact styling given in the non-bootstrap
+source code starter-template.css */
+#just_inside_container {
   text-align: center;
-  margin: 0;
-  align-self: center;
+  padding: 3rem 1.5rem;
 }
 
-div#main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
-div#placeholder {
-	height: 1px;
-	width: 33.33vw;
-}
-
-div#site_info {
-	width: 33.33vw;
-	display: flex;
-	flex-direction: column;
-}
-
-div#copyright {
-	width: 33.33vw;
-	text-align: center;
-}
