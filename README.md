@@ -1,5 +1,5 @@
 **Live site:** eSudoku is live here:
-[boiling-refuge-72331.herokuapp.com](boiling-refuge-72331.herokuapp.com)
+<https://boiling-refuge-72331.herokuapp.com/>
 
  
 
