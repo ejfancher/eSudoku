@@ -38,7 +38,7 @@ export class Cell extends React.Component {
 
     const cellType = this.state.cellType;
 
-    return (<input type="text" value={curNumber} partOfCrossHair={partOfCrossHair} onChange={this.handleChange} onClick={this.handleClick} className={cellType}
+    return (<input type="tel" value={curNumber} partOfCrossHair={partOfCrossHair} onChange={this.handleChange} onClick={this.handleClick} className={cellType}
      onMouseOver={() => this.props.addCrossHairs(m, n)} conf={this.props.conf}/> );
   } 
 }
