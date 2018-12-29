@@ -31,53 +31,22 @@ app.get('/game', (req, res) => {
   }
 })
 
-
-
-
-app.get('/one', (req, res) => {
-  var target_file = cwd+'/src/html/game_page_ch.html'
+/* _typenum test */
+app.get('/typenum', (req, res) => {
+  var target_file = cwd+'/src/html/game_page_typenum.html'
   res.sendFile(target_file)
 })
 
-app.get('/two', (req, res) => {
-  var target_file = cwd+'/src/html/game_page_number.html'
+app.get('/bundle_typenum.js', (req, res) => {
+  var target_file = cwd+'/src/bundle/bundle_typenum.js'
   res.sendFile(target_file)
 })
 
-app.get('/three', (req, res) => {
-  var target_file = cwd+'/src/html/game_page_number_pat.html'
-  res.sendFile(target_file)
-})
 
-app.get('/four', (req, res) => {
-  var target_file = cwd+'/src/html/game_page_tel.html'
-  res.sendFile(target_file)
-})
+
 
 app.get('/bundle.js', (req, res) => {
   var target_file = cwd+'/src/bundle/bundle.js'
-  res.sendFile(target_file)
-})
-
-app.get('/bundle_number.js', (req, res) => {
-  var target_file = cwd+'/src/bundle/bundle_number.js'
-  res.sendFile(target_file)
-})
-
-app.get('/bundle_number_pat.js', (req, res) => {
-  var target_file = cwd+'/src/bundle/bundle_number_pat.js'
-  res.sendFile(target_file)
-})
-
-app.get('/bundle_number_tel.js', (req, res) => {
-  var target_file = cwd+'/src/bundle/bundle_tel.js'
-  res.sendFile(target_file)
-})
-
-
-
-app.get('/test', (req, res) => {
-  var target_file = cwd+'/src/html/test.html'
   res.sendFile(target_file)
 })
 

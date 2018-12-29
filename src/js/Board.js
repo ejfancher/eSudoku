@@ -6,18 +6,14 @@ import {LogicBoard} from './LogicBoard';
 export class Board extends React.Component {
 	constructor(props){
 		super(props);
-		this.addCrossHairs = this.addCrossHairs.bind(this);
-		this.rmCrossHairs = this.rmCrossHairs.bind(this);
+
 		this.changeCellValue = this.changeCellValue.bind(this);
 		this.getConfType = this.getConfType.bind(this);
-
-		var board_string = '000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-
+		//var board_string = '029004700580001000070056900000000007712000698400000000001620030000900046008500170'
 		this.state = {
 //board_string "injected" into a <script> in the final html
 			board : new LogicBoard(board_string), 
-			crossHairM : -1,
-			crossHairN : -1,
+
 /* user_value_conflicts keeps a tab on all values the user has
  entered that are in conflict with another cell */
 			user_value_conflicts : [], 
@@ -83,19 +79,6 @@ board) what cells their latest input was in conflict with. */
 					other_conflicts: this.state.other_conflicts})
 	}
 
-/* adds the col, row to the crosshair viewable when the cursor hovers
- over the board on large displays */
-	addCrossHairs(m, n){
-		this.setState({crossHairM: m,
-					crossHairN: n})
-	}
-
-/* rms the col, row to the crosshair viewable on when the cursor hovers
- over board on large displays */
-	rmCrossHairs(){
-     	this.setState({crossHairM: -1,
-     				crossHairN: -1})
-    }
 
 /* if the cell at m, n is conflicting returns whether the cell is a 
 user entered cell or a preset cell, or false if its not conflicting */
@@ -124,22 +107,18 @@ user entered cell or a preset cell, or false if its not conflicting */
     }
 
 	render() {
-		const chm = this.state.crossHairM;
-		const chn = this.state.crossHairN;
-
-		return (<table onMouseLeave={() => this.rmCrossHairs()}>
+		return (<table>
 					{
 						this.state.grid.map((row, m) => { 
 						return( 
 						<tr>
 							{row.map((elem, n) => {
-								const partOfCrossHair = ((m === chm) || (n === chn)) ? 'true' : 'false'
 
 								var confVal = this.getConfType(m, n);
 
 								return (<td key={m+', '+n}> 
-											<Cell logicCell={this.state.grid[m][n]} m={m} n={n} partOfCrossHair={partOfCrossHair} conf={confVal} setNumber={(m, n, val) => this.changeCellValue(m, n, val)}
-											 addCrossHairs={(m, n) => this.addCrossHairs(m, n)} handleClick={() => this.setState({other_conflicts: []})}/>
+											<Cell logicCell={this.state.grid[m][n]} setNumber={(m, n, val) => this.changeCellValue(m, n, val)}
+											 m={m} n={n} conf={confVal} handleClick={() => this.setState({other_conflicts: []})}/>
 									 	</td>) })}
 						</tr>)})
 					}

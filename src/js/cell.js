@@ -32,13 +32,12 @@ export class Cell extends React.Component {
   render(){
     const curNumber = (this.props.logicCell.get_value() == 0) ? '' : this.props.logicCell.get_value()
 
-    const partOfCrossHair = this.props.partOfCrossHair
     const m = this.props.m;
     const n = this.props.n;
 
     const cellType = this.state.cellType;
 
-    return (<input type="tel" value={curNumber} partOfCrossHair={partOfCrossHair} onChange={this.handleChange} onClick={this.handleClick} className={cellType}
-     onMouseOver={() => this.props.addCrossHairs(m, n)} conf={this.props.conf}/> );
+    return (<input type="text" className={cellType} value={curNumber} conf={this.props.conf}
+      onChange={this.handleChange} onClick={this.handleClick}/>);
   } 
 }

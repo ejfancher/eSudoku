@@ -110,19 +110,48 @@ input {
   input {
     font-size: 32px;
   }
-/* lighter shade for crosshair than for currently hovered
-over cell. This crosshair shows up in devTools iPad Pro
-landscape mode. The crosshair renders horribly on most all
-touch screen devices. The CSS-Tricks version of doing the cross
-hair effect is worth a shot (to apply to all devices,
-having :hover or not). */
-  input[partOfCrossHair='true'] {
-    background-color: #9ab7d699;
+
+/*****   CROSSHAIR   *****/
+  
+  table {
+    overflow: hidden;
   }
-  input:hover {
-    background-color: #9ab7d6;
+  td {
+    position: relative;
+  }
+
+/* A lighter color shade for the crosshair is given than 
+for the currently hovered over cell. This crosshair shows up in 
+devTools iPad Pro landscape mode. I've never been able to render the 
+C.H. on any touch screen device better than badly, although 
+CSS-Tricks claims to be able to do so. */
+
+  td:hover::before { 
+    background-color: #9ab7d699;
+    content: '\00a0';  
+    height: 100%;
+    left: -5000px;
+    position: absolute;  
+    top: 0;
+    width: 10000px;   
+    z-index: -1;        
+  }
+  td:hover::after {
+    background-color: #9ab7d699;;
+    content: '\00a0';  
+    height: 10000px;    
+    left: 0;
+    position: absolute;  
+    top: -5000px;
+    width: 100%;
+    z-index: -1;  
+  }
+
+  input {
+    background-color: rgba(0,0,0,0);
   }
 }
+
 
 table {
   border-collapse: collapse;
