@@ -11,6 +11,8 @@ export class Board extends React.Component {
 		this.changeCellValue = this.changeCellValue.bind(this);
 		this.getConfType = this.getConfType.bind(this);
 
+		var board_string = '000000000000000000000000000000000000000000000000000000000000000000000000000000000'
+
 		this.state = {
 //board_string "injected" into a <script> in the final html
 			board : new LogicBoard(board_string), 

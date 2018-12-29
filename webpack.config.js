@@ -21,7 +21,7 @@ module.exports = {
   output: {
     path: __dirname + '/src/bundle',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle_tel.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
