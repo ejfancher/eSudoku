@@ -9,7 +9,7 @@ export class Board extends React.Component {
 
 		this.changeCellValue = this.changeCellValue.bind(this);
 		this.getConfType = this.getConfType.bind(this);
-		//var board_string = '029004700580001000070056900000000007712000698400000000001620030000900046008500170'
+		var board_string = '029004700580001000070056900000000007712000698400000000001620030000900046008500170'
 		this.state = {
 //board_string "injected" into a <script> in the final html
 			board : new LogicBoard(board_string), 
@@ -107,7 +107,7 @@ user entered cell or a preset cell, or false if its not conflicting */
     }
 
 	render() {
-		return (<table>
+		return (<table><tbody>
 					{
 						this.state.grid.map((row, m) => { 
 						return( 
@@ -122,6 +122,6 @@ user entered cell or a preset cell, or false if its not conflicting */
 									 	</td>) })}
 						</tr>)})
 					}
-				</table>);
+				</tbody></table>);
 	}
 }

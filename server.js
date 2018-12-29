@@ -32,6 +32,7 @@ app.get('/game', (req, res) => {
 })
 
 /* _typenum test */
+
 app.get('/typenum', (req, res) => {
   var target_file = cwd+'/src/html/game_page_typenum.html'
   res.sendFile(target_file)
@@ -42,8 +43,29 @@ app.get('/bundle_typenum.js', (req, res) => {
   res.sendFile(target_file)
 })
 
+/* _tdborder test */
+app.get('/tdborder', (req, res) => {
+  var target_file = cwd+'/src/html/game_page_tdborder.html'
+  res.sendFile(target_file)
+})
 
+app.get('/bundle_tdborder.js', (req, res) => {
+  var target_file = cwd+'/src/bundle/bundle_tdborder.js'
+  res.sendFile(target_file)
+})
 
+/* _boardwidth test */
+app.get('/boardwidth', (req, res) => {
+  var target_file = cwd+'/src/html/game_page_boardwidth.html'
+  res.sendFile(target_file)
+})
+
+app.get('/bundle_boardwidth.js', (req, res) => {
+  var target_file = cwd+'/src/bundle/bundle_boardwidth.js'
+  res.sendFile(target_file)
+})
+
+/* end tests */
 
 app.get('/bundle.js', (req, res) => {
   var target_file = cwd+'/src/bundle/bundle.js'

@@ -21,7 +21,7 @@ module.exports = {
   output: {
     path: __dirname + '/src/bundle',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle_boardwidth.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
