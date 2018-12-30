@@ -5,10 +5,11 @@ body {
   padding-top: 5rem;
 }
 
-/* From Bootstraps starter_template from the Examples page */
+/* From Bootstraps starter_template from the Examples page, minus the
+right, left, padding */
 div#container1 {
   text-align: center;
-  padding: 3rem 1.5rem;
+  padding-top: 3rem;
 }
 
 /* Here I format and color the welcome message and difficulty selection
