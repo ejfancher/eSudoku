@@ -7,6 +7,7 @@ const app = express();
 
 const cwd = path.resolve()
 
+// hosting static files
 var static_files_root_dir = path.resolve() + '/public'
 app.use(express.static(static_files_root_dir))
 
@@ -17,6 +18,9 @@ app.get('/', (req, res) => {
 
 app.get('/game', (req, res) => {
   const diff = req.query.diff
+/* if a difficulty option came through in the query portion of the
+requested resource, inject a random board of that difficulty into
+the game page and serve that page */
   if (diff != null && diff != "") {
     const board_string = boards.randomBoard(diff)
     var data = fs.readFileSync('./src/html/game_page.html', 'utf8')
@@ -77,7 +81,7 @@ app.get('/map', (req, res) => {
   res.sendFile(target_file)
 })
 
-// check for port env variable for when being deployed from heroku server
+// check for port env. variable for when being ran on heroku server
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 5000;

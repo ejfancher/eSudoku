@@ -13,10 +13,14 @@ div#container1 {
 }
 
 /* Here I format and color the welcome message and difficulty selection
-The margin styling below should probably be done with Bootstrap Utilites
- in the future */
+bottons. The margin styling below should probably be done with Bootstrap
+utilites in the future */
 div#container1 h1 {
-  margin-bottom: 1vh;
+  margin-bottom: .4em;
+}
+
+span {
+  font-size: 0.8em;
 }
 
 div#diff_sel_buttons button {
@@ -28,3 +32,6 @@ div#diff_sel_buttons button:nth-of-type(2) {
   margin-right: 2vw;
   margin-left: 2vw;
 }
+
+
+
