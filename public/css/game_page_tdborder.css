@@ -4,111 +4,111 @@ body {
 }
 
 div#app {
-  padding: 3rem 1.5rem;
+  padding-top: 3rem;
 }
 
 /****************         SUDOKU BOARD STYLING         ****************/
 
 /* Extra small devices (all portrait phones, 575px wide and under) */
 table {
-  border: 3px solid black;
+  border: 3.5px solid black;
 }
 td:nth-child(3n+1) {
-  border-left-width: 2px;
+    border-left-width: 3.5px;
 }
 tr:nth-child(3n) > td {
-  border-bottom-width: 2px;
+    border-bottom-width: 3.5px;
 }
 td {
-  width: 32.5px;
-  height: 32.5px;
-  border-width: 1px;
+  width: 32px;
+  height: 32px;
+  border-width: 1.5px;
 }
 input {
-  font-size: 25px;
+  font-size: 19px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   table {
-      border: 3px solid black;
+      border: 3.5px solid black;
   }
   td:nth-child(3n+1) {
-      border-left-width: 2px;
+      border-left-width: 3.5px;
   }
   tr:nth-child(3n) > td {
-      border-bottom-width: 2px;
+      border-bottom-width: 3.5px;
   }
   td {
-    width: 32.5px;
-    height: 32.5px;
-    border-width: 1px;
+    width: 32px;
+    height: 32px;
+    border-width: 1.5px;
   }
   input {
-    font-size: 25px;
+    font-size: 19px;
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   table {
-      border: 3px solid black;
+      border: 3.5px solid black;
   }
   td:nth-child(3n+1) {
-      border-left-width: 2px;
+      border-left-width: 3.5px;
   }
   tr:nth-child(3n) > td {
-      border-bottom-width: 2px;
+      border-bottom-width: 3.5px;
   }
   td {
-    width: 32.5px;
-    height: 32.5px;
-    border-width: 1px;
+    width: 32px;
+    height: 32px;
+    border-width: 1.5px;
   }
   input {
-    font-size: 25px;
+    font-size: 19px;
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   table {
-    border: 4px solid black;
+    border: 3.5px solid black;
   }
   td:nth-child(3n+1) {
-    border-left-width: 3px;
+      border-left-width: 3.5px;
   }
   tr:nth-child(3n) > td {
-    border-bottom-width: 3px;
+      border-bottom-width: 3.5px;
   }
   td {
-    width: 42.5px;
-    height: 42.5px;
-    border-width: 1px;
+    width: 42px;
+    height: 42px;
+    border-width: 1.5px;
   }
   input {
-    font-size: 32px;
+    font-size: 25px;
   }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   table {
-    border: 4px solid black;
+    border: 3.5px solid black;
   }
   td:nth-child(3n+1) {
-    border-left-width: 3px;
+      border-left-width: 3.5px;
   }
   tr:nth-child(3n) > td {
-    border-bottom-width: 3px;
+      border-bottom-width: 3.5px;
   }
   td {
-    width: 42.5px;
-    height: 42.5px;
+    width: 42px;
+    height: 42px;
     border-width: 1.5px;
   }
   input {
-    font-size: 32px;
+    font-size: 25px;
   }
 
 /*****   CROSSHAIR   *****/
@@ -152,10 +152,10 @@ CSS-Tricks claims to be able to do so. */
   }
 }
 
-
 table {
   border-collapse: collapse;
   table-layout: auto;
+  width: auto;
 }
 
 td {
@@ -171,6 +171,7 @@ input {
   text-align: center;
   padding: 0;
   border: 0;
+  margin: 0;
 }
 
 input.locked_preset {

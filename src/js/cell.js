@@ -37,7 +37,7 @@ export class Cell extends React.Component {
 
     const cellType = this.state.cellType;
 
-    return (<input type="text" className={cellType} value={curNumber} conf={this.props.conf}
+    return (<input type="text" inputmode="numeric" pattern="[0-9]*" className={cellType} value={curNumber} conf={this.props.conf}
       onChange={this.handleChange} onClick={this.handleClick}/>);
   } 
 }
