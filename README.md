@@ -1,8 +1,6 @@
 **Live site:** eSudoku is live here:
 <https://boiling-refuge-72331.herokuapp.com/>
 
- 
-
 About
 -----
 
@@ -14,8 +12,6 @@ documented, but the directory structure isn’t. src/js holds the files that are
 bundled by Webpack to create the Sudoku board. The html pages of the site are
 located in src/html and their corresponding css files are in public/css. The
 node server is server.js which imports board.js.
-
- 
 
 Running locally
 ---------------
