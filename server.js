@@ -7,7 +7,8 @@ const app = express();
 const cwd = __dirname
 
 // hosting static files
-var static_files_root_dir = cwd + '/public'
+var static_files_root_dir = cwd + '/src/css'
+console.log(static_files_root_dir)
 app.use(express.static(static_files_root_dir))
 
 app.get('/', (req, res) => {
