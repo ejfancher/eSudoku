@@ -1,7 +1,5 @@
 body {
-  /* Adding padding to the top of the main moves all elements below
-  the navbar to below the navbar, even though the navbar is in body.
-  Try deleting it and re-adding it for proof. */
+  /* move all elements under the navbar to render below the navbar */
   padding-top: 5rem;
 }
 
@@ -13,14 +11,13 @@ div#container1 {
 }
 
 /* Here I format and color the welcome message and difficulty selection
-bottons. The margin styling below should probably be done with Bootstrap
-utilites in the future */
+bottons. */
 div#container1 h1 {
   margin-bottom: .4em;
 }
 
 span {
-  font-size: 0.8em;
+  font-size: .8em;
 }
 
 div#diff_sel_buttons button {

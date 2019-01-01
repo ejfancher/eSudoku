@@ -9,7 +9,10 @@ div#app {
 
 /****************         SUDOKU BOARD STYLING         ****************/
 
-/* Extra small devices (all portrait phones, 575px wide and under) */
+/**** BREAKPOINT STYLING OF BOARD ****/
+
+/* Extra small devices (all phones in portrait orientation, 
+575px wide and under) */
 table {
   border: 3.5px solid black;
 }
@@ -111,7 +114,12 @@ input {
     font-size: 25px;
   }
 
-/*****   CROSSHAIR   *****/
+/*   CROSSHAIR   */
+/* A lighter color shade for the crosshair is given than 
+for the currently hovered over cell. This crosshair shows up in 
+devTools iPad Pro landscape mode. I've never been able to render the 
+C.H. on any touch screen device better than badly, although 
+CSS-Tricks claims to be able to do so. */
   
   table {
     overflow: hidden;
@@ -119,12 +127,6 @@ input {
   td {
     position: relative;
   }
-
-/* A lighter color shade for the crosshair is given than 
-for the currently hovered over cell. This crosshair shows up in 
-devTools iPad Pro landscape mode. I've never been able to render the 
-C.H. on any touch screen device better than badly, although 
-CSS-Tricks claims to be able to do so. */
 
   td:hover::before { 
     background-color: #9ab7d699;
@@ -152,7 +154,7 @@ CSS-Tricks claims to be able to do so. */
   }
 }
 
-
+/**** GENERAL STYLING OF BOARD  ***/
 table {
   border-collapse: collapse;
   table-layout: auto;
@@ -189,6 +191,6 @@ input[conf='user'] {
 }
 
 /* remove highlighting of input borders on blur */
-*:focus {
+input:focus {
   outline: none;
 }
