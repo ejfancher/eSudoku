@@ -12,7 +12,7 @@ export class Cell extends React.Component {
       logicCell: this.props.logicCell, 
       /* if a value was part of the starting game board it is a locked
        preset cell, viewable in blue font. Otherwise it's changeable. */
-      cellType: this.props.logicCell.is_locked() ? 'locked_preset' : 'user_changeable'
+      cellType: this.props.logicCell.is_locked() ? 'locked_preset' : 'editable'
     };
   }
 
@@ -34,10 +34,10 @@ export class Cell extends React.Component {
 
     const m = this.props.m;
     const n = this.props.n;
-
+    
     const cellType = this.state.cellType;
 
-    return (<input type="text" inputmode="numeric" pattern="[0-9]*" className={cellType} value={curNumber} conf={this.props.conf}
-      onChange={this.handleChange} onClick={this.handleClick}/>);
+    return (<input type="tel" inputmode="numeric" pattern="[0-9]*" className={cellType} value={curNumber} conf={this.props.conf}
+      onInput={this.handleChange} onClick={this.handleClick}/>);
   } 
 }

@@ -12,7 +12,6 @@ export class Board extends React.Component {
 		this.state = {
 //board_string "injected" into a <script> in the final html
 			board : new LogicBoard(board_string), 
-
 /* user_value_conflicts keeps a tab on all values the user has
  entered that are in conflict with another cell */
 			user_value_conflicts : [], 
@@ -39,7 +38,8 @@ board) what cells their latest input was in conflict with. */
 		if (val != 0) { // if the change was not a deletion, but a edit to a value 1-9
 			var conflicts = this.state.board.get_conflicts(m,n)
 			if (conflicts.length > 0) {	/* if there was a conflict caused by the
-			new value, add its cell and its conflicts to the right conflict lists */
+			new value of the cell, add it's and its' conflicts coordinates to the 
+			correct conflict list */
 				this.state.user_value_conflicts.push([m, n]);
 				for (var i=0; i<conflicts.length; i++) {
 					if (conflicts[i][0] != m || conflicts[i][1] != n) {
@@ -58,8 +58,9 @@ board) what cells their latest input was in conflict with. */
 			/* The only way to cause a cell with a user entered value that caused a conflict on initial input
 			   into the board to no longer be causing a conflict is to delete a cell somewhere on the board. 
 			   Deleting a cell half way into a game could cause the first cell entered during the game to be
-			   relieved of its conflicts. As such we check all stored conflicts in user_value_conflicts for conflicts
-			   everytime time a deletion is made. */
+			   relieved of its conflicts. As such we reevaluate all stored conflicts in user_value_conflicts
+			   for being in conflict everytime a deletion is made, and remove a cell from user_value_conflicts
+			   if its no longer in conflict: */
 			while (!parsing_complete) {
 				var parsing_complete = true
 				for (var i=0; i<this.state.user_value_conflicts.length; i++) {

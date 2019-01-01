@@ -1,14 +1,13 @@
 const express = require('express');
-const path = require('path');
 const fs = require('fs');
 const boards = require('./boards.js');
 
 const app = express();
 
-const cwd = path.resolve()
+const cwd = __dirname
 
 // hosting static files
-var static_files_root_dir = path.resolve() + '/public'
+var static_files_root_dir = cwd + '/public'
 app.use(express.static(static_files_root_dir))
 
 app.get('/', (req, res) => {
@@ -81,7 +80,8 @@ app.get('/map', (req, res) => {
   res.sendFile(target_file)
 })
 
-// check for port env. variable for when being ran on heroku server
+// check for port env. variable to use when being ran on heroku server
+// otherwise run on port 5000 locally
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 5000;
