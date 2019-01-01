@@ -10,8 +10,8 @@ extended and which now exists in src/js/LogicBoard.js and src/js/LogicCell.js.
 I’m the author of 100% of the rest of the code. The code itself is well
 documented, but the directory structure isn’t. src/js holds the files that are
 bundled by Webpack to create the Sudoku board. The html pages of the site are
-located in src/html and their corresponding css files are in public/css. The
-node server is server.js which imports board.js.
+located in src/html and their corresponding css files are in src/css. The node
+server is server.js which imports board.js.
 
 Running locally
 ---------------
