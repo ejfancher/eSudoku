@@ -1,10 +1,25 @@
 const express = require('express');
 const fs = require('fs');
+const fsP = require('fs').promises;
 const boards = require('./boards.js');
 
 const app = express();
 
 const cwd = __dirname
+
+
+function requestCallback(request/* an http.IncomingMessage as per bullets below the event (also HttpServer has no <ImcomingMeesage> property) */, response) {
+    let httpServer = this; // (assuming this function we're in is a "ordinary listener function") based on event module
+    console.log(this);
+    if (request.url == "/") {
+        let target_file = cwd+'/src/html/home_page.html';
+        fsP.readFile(target_file, ())  //TODO: figure out https://nodejs.org/docs/latest-v12.x/api/fs.html#fs_promise_example w jsinfo
+    }
+    else if (request.url === '/game' || request.url.startsWith('') {
+    
+    }
+}
+
 
 // hosting static files
 var static_files_root_dir = cwd + '/src/css'
