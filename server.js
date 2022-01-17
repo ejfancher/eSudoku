@@ -13,10 +13,13 @@ function requestCallback(request/* an http.IncomingMessage as per bullets below 
     console.log(this);
     if (request.url == "/") {
         let target_file = cwd+'/src/html/home_page.html';
-        fsP.readFile(target_file, ())  //TODO: figure out https://nodejs.org/docs/latest-v12.x/api/fs.html#fs_promise_example w jsinfo
+        response.write(fs.readFileSync(target_file));
+        response.end();
     }
     else if (request.url === '/game' || request.url.startsWith('') {
-    
+        let randBoardPromise = new Promise( (R, r) => { r(boards.randomBoard(diff)) });
+        let filePromise = fsP.readFile('./src/html/game_page.html', 'utf8').then
+        Promise.all(randBoardPromise, filePromise).then(
     }
 }
 
