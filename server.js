@@ -6,9 +6,9 @@ const boards = require('./boards.js');
 const app = express();
 
 const cwd = __dirname
+/*
 
-
-function requestCallback(request/* an http.IncomingMessage as per bullets below the event (also HttpServer has no <ImcomingMeesage> property) */, response) {
+function requestCallback(request/* an http.IncomingMessage as per bullets below the event (also HttpServer has no <ImcomingMeesage> property) , response) {
     let httpServer = this; // (assuming this function we're in is a "ordinary listener function") based on event module
     console.log(this);
     if (request.url == "/") {
@@ -22,7 +22,7 @@ function requestCallback(request/* an http.IncomingMessage as per bullets below 
         Promise.all(randBoardPromise, filePromise).then(
     }
 }
-
+*/
 
 // hosting static files
 var static_files_root_dir = cwd + '/src/css'
