@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Cell} from './Cell.js'
+import {Cell} from './cell.js'
 import {LogicBoard} from './LogicBoard';
 
 export class Board extends React.Component {
