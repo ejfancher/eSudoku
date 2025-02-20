@@ -12,64 +12,38 @@ function requestCallback(request/* an http.IncomingMessage as per bullets below 
     let httpServer = this; // (assuming this function we're in is a "ordinary listener function") based on event module
     console.log(this);
     console.log('request url: '+request.url)
-    if (request.url == "/") {
-        let target_file = cwd+'/src/html/site_map.html';
-        response.write(fs.readFileSync(target_file));
+    if (request.url === "/") {
+        var target_file = cwd+'/src/html/site_map.html';
+        response.statusCode=200;
+        response.setHeader('Content-Type', 'text/html');
+        response.write(fs.readFileSync(target_file), 'utf8');
         response.end();
+    }
+    if (request.url === "/favicon.ico") {
+         var target_file = cwd+'/src/compiled/favicon-2.png'
+         response.statusCode = 200;
+         response.setHeader('Content-Type', 'image/png');
+         response.flushHeaders();
+         response.end(fs.readFileSync(target_file), 'utf8');
     }
     else if (request.url === '/game' ){
         var diff = 'easy';
         let randBoardPromise = new Promise( (R, r) => { R(boards.randomBoard(diff))} );
         let filePromise = fsP.readFile('./src/html/game_page.html', 'utf8');
-        Promise.all(randBoardPromise, filePromise).then(function(results){
+        Promise.all(new Array(randBoardPromise, filePromise)).then(function(results){
                 var data=results[1];
                 var split_point = data.indexOf('<script src="./bundle.js">');
                 var before = data.slice(0, split_point);
                 var after = data.slice(split_point);
-                data = before+'<script type="text/javascript">var board_string=\''+results[1]+'\'</script>\n'+after;
-                
-                response.write(data);
+                data = before+'<script type="text/javascript">var board_string=\''+results[0]+'\'</script>\n'+after;
+                response.statusCode=200;
+                response.setHeader('Content-Type', 'text/html');
+                response.end(data, 'utf8');
         });
-        response.end();
     }
 }
 
 
-// hosting static files
-//var static_files_root_dir = cwd + '/src/css'
-//app.use(express.static(static_files_root_dir))
-
-/* 
-app.get('/game', (req, res) => {
-  const diff = req.query.diff
-if a difficulty option came through in the query portion of the
-requested resource, inject a random board of that difficulty into
-the game page and serve that page
-  if (diff != null && diff != "") {
-    const board_string = boards.randomBoard(diff)
-    var data = fs.readFileSync('./src/html/game_page.html', 'utf8')
-    var split_point = data.indexOf('<script src="./bundle.js">')
-    var before = data.slice(0, split_point)
-    var after = data.slice(split_point)
-    data = before+'<script type="text/javascript">var board_string=\''+board_string+'\'</script>\n'+after
-    res.send(data)
-  }
-  else {
-    res.redirect('/game?diff=easy')
-  }
-})
-
-
-app.get('/bundle.js', (req, res) => {
-  var target_file = cwd+'/src/bundle/bundle.js'
-  res.sendFile(target_file)
-})
-
-app.get('/map', (req, res) => {
-  var target_file = cwd+'/src/html/site_map.html'
-  res.sendFile(target_file)
-})
-*/
 // check for port env. variable to use when being ran on heroku server
 // otherwise run on port 5000 locally
 let port = process.env.PORT;
