@@ -10,7 +10,7 @@
 	<title>eSudoku</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+    <nav id="nav_bar" class="navbar navbar-expand navbar-dark bg-dark fixed-top">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
@@ -28,9 +28,19 @@
 	<div id="site_map" class="list-group" style="padding: 3rem 1.5rem;">
 		<a href="/" class="list-group-item list-group-item-action">Home page<br><small>Welcome to eSudoku.select a difficulty:</small>
 		</a>
-		<a href="/game?diff=easy" class="list-group-item list-group-item-action">Game page<br><small>The website's sudoku board</small></a>
+		<a href="/game" class="list-group-item list-group-item-action">Game page<br><small>The website's sudoku board</small></a>
 		<a href="/map" class="list-group-item list-group-item-action">Site map<br><small>The website's site map</small></a>
 	</div>
+
+<p id="helloworld" >Hello World!</p>
+
+<script>var i=decodeURIComponent(document.cookie.split("=")[1]);
+            var o=parseInt(i,32);
+            console.log(o);
+            var a="";
+            while(o>0){ var e= o%16; switch(e){case 10:e='A';break;case 11:e='B';break;case 12:e='C';break;case 13:e='D';break;case 14:e='E';break;case 15:e='F';} a=e.toString() + a; o=Math.floor(o/16);}
+            document.getElementById("helloworld").setAttribute("style","color: #"+a);
+            </script>
 
 <!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

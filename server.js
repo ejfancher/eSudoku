@@ -16,6 +16,7 @@ function requestCallback(request/* an http.IncomingMessage as per bullets below 
         var target_file = cwd+'/src/html/site_map.html';
         response.statusCode=200;
         response.setHeader('Content-Type', 'text/html');
+	response.setHeader('Set-Cookie', 'theme=2QL9G%3D%3D%3D');
         response.write(fs.readFileSync(target_file), 'utf8');
         response.end();
     }
@@ -26,12 +27,20 @@ function requestCallback(request/* an http.IncomingMessage as per bullets below 
          response.flushHeaders();
          response.end(fs.readFileSync(target_file), 'utf8');
     }
+    if (request.url === "/bundle.js") {
+         var target_file = cwd+'/src/compiled/bundle.js'
+         response.statusCode = 200;
+         response.setHeader('Content-Type', 'text/javascript');
+         response.flushHeaders();
+         response.end(fs.readFileSync(target_file), 'utf8');
+    }
     else if (request.url === '/game' ){
         var diff = 'easy';
         let randBoardPromise = new Promise( (R, r) => { R(boards.randomBoard(diff))} );
         let filePromise = fsP.readFile('./src/html/game_page.html', 'utf8');
         Promise.all(new Array(randBoardPromise, filePromise)).then(function(results){
-                var data=results[1];
+     console.log("db1");      
+     var data=results[1];
                 var split_point = data.indexOf('<script src="./bundle.js">');
                 var before = data.slice(0, split_point);
                 var after = data.slice(split_point);
