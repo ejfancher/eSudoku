@@ -39,6 +39,7 @@
             console.log(o);
             var a="";
             while(o>0){ var e= o%16; switch(e){case 10:e='A';break;case 11:e='B';break;case 12:e='C';break;case 13:e='D';break;case 14:e='E';break;case 15:e='F';} a=e.toString() + a; o=Math.floor(o/16);}
+window.alert(a);
             document.getElementById("helloworld").setAttribute("style","color: #"+a);
             </script>
 

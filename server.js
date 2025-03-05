@@ -14,9 +14,9 @@ function requestCallback(request/* an http.IncomingMessage as per bullets below 
     console.log('request url: '+request.url)
     if (request.url === "/") {
         var target_file = cwd+'/src/html/site_map.html';
-        response.statusCode=200;
+        response.statusCode=302;
         response.setHeader('Content-Type', 'text/html');
-	response.setHeader('Set-Cookie', 'theme=2QL9G%3D%3D%3D');
+	response.setHeader('Location', '/?theme=2QL9G%3D%3D%3D');
         response.write(fs.readFileSync(target_file), 'utf8');
         response.end();
     }
@@ -39,7 +39,7 @@ function requestCallback(request/* an http.IncomingMessage as per bullets below 
         let randBoardPromise = new Promise( (R, r) => { R(boards.randomBoard(diff))} );
         let filePromise = fsP.readFile('./src/html/game_page.html', 'utf8');
         Promise.all(new Array(randBoardPromise, filePromise)).then(function(results){
-     console.log("db1");      
+     console.log("1");      
      var data=results[1];
                 var split_point = data.indexOf('<script src="./bundle.js">');
                 var before = data.slice(0, split_point);

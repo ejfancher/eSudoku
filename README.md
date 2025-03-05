@@ -1,3 +1,5 @@
+todo: make use of base64 encoded "cheat" color scheme in CSS... cheat as I still dont understand colr theory but will pretend to. either that or hstore the hex encoded colors with func() declaratively in tge CSS.
+func!= base256tohex(base256(657000))
 **Live site:** eSudoku is live here:
 <https://boiling-refuge-72331.herokuapp.com/>
 
